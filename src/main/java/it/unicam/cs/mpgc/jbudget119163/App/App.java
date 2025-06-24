@@ -6,15 +6,33 @@ import it.unicam.cs.mpgc.jbudget119163.Model.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class App {
-    Budget budget = new Budget(BigDecimal.ZERO);
-    Movement movement = new Movement(UUID.randomUUID(), BigDecimal.valueOf(10000), "Stipendio", LocalDate.now(), Category.LAVORO, Type.IN);
+    private final Budget budget = new Budget(BigDecimal.ZERO);
     public void run(){
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(10_000),
+                "Stipendio",
+                LocalDate.now(),
+                Category.LAVORO,
+                Type.IN);
+
+        // Eventuale altro movimento di spesa
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(250),
+                "Bolletta luce",
+                LocalDate.now().minusDays(2),
+                Category.SVAGO,
+                Type.OUT);
+
+
         Balance balance = new Balance();
-        balance.UpdateBalance(budget, movement);
-        System.out.println("Balance updated, budget=" + budget.amount);
+
+        balance.updateBalance(budget, Movement.getAll());
+        System.out.println("Balance: " + budget.getAmount());
     }
 
 
