@@ -1,7 +1,8 @@
-package it.unicam.cs.mpgc.jbudget119163.Balance;
+package it.unicam.cs.mpgc.jbudget119163.service;
 
-import it.unicam.cs.mpgc.jbudget119163.Abstract.BalanceInterface;
+import it.unicam.cs.mpgc.jbudget119163.interfaces.BalanceInterface;
 import it.unicam.cs.mpgc.jbudget119163.Model.Budget;
+import it.unicam.cs.mpgc.jbudget119163.Model.Movement;
 
 import java.math.BigDecimal;
 import java.util.List;

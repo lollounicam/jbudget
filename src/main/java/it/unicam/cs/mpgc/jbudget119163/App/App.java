@@ -1,13 +1,11 @@
 package it.unicam.cs.mpgc.jbudget119163.App;
 
-import it.unicam.cs.mpgc.jbudget119163.Balance.Balance;
-import it.unicam.cs.mpgc.jbudget119163.Balance.Movement;
+import it.unicam.cs.mpgc.jbudget119163.service.Balance;
+import it.unicam.cs.mpgc.jbudget119163.Model.Movement;
 import it.unicam.cs.mpgc.jbudget119163.Model.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 public class App {
@@ -20,7 +18,6 @@ public class App {
                 Category.LAVORO,
                 Type.IN);
 
-        // Eventuale altro movimento di spesa
         new Movement(UUID.randomUUID(),
                 BigDecimal.valueOf(250),
                 "Bolletta luce",
@@ -91,5 +88,9 @@ public class App {
         System.out.println("Balance: " + budget.getAmount());
     }
 
+    public static void main(String[] args) {
+        App app = new App();
+        app.run();
+    }
 
 }

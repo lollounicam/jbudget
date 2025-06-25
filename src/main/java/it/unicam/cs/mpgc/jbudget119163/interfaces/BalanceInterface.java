@@ -1,4 +1,4 @@
-package it.unicam.cs.mpgc.jbudget119163.Abstract;
+package it.unicam.cs.mpgc.jbudget119163.interfaces;
 
 import java.util.UUID;
 

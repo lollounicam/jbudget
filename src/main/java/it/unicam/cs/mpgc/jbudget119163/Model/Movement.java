@@ -1,8 +1,6 @@
-package it.unicam.cs.mpgc.jbudget119163.Balance;
+package it.unicam.cs.mpgc.jbudget119163.Model;
 
-import it.unicam.cs.mpgc.jbudget119163.Abstract.MovementInterface;
-import it.unicam.cs.mpgc.jbudget119163.Model.Category;
-import it.unicam.cs.mpgc.jbudget119163.Model.Type;
+import it.unicam.cs.mpgc.jbudget119163.interfaces.MovementInterface;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
