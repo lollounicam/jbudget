@@ -1,5 +1,6 @@
 package it.unicam.cs.mpgc.jbudget119163.Balance;
 
+import it.unicam.cs.mpgc.jbudget119163.Abstract.MovementInterface;
 import it.unicam.cs.mpgc.jbudget119163.Model.Category;
 import it.unicam.cs.mpgc.jbudget119163.Model.Type;
 
@@ -10,7 +11,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class Movement {
+public class Movement implements MovementInterface {
 
     private final UUID id;
     private final BigDecimal amount;
@@ -27,38 +28,23 @@ public class Movement {
         this.amount = amount;
         this.description = description;
         this.date = date;
-        checkDate(this.date);
+        checkDate();
         this.category = category;
         this.type = type;
         MOVEMENTS.add(this);
     }
 
-    public static List<Movement> getAll() {
-        return Collections.unmodifiableList(MOVEMENTS); // sicurezza: lista non modificabile
+    @Override
+    public Type getType(){
+        return type;
     }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public BigDecimal getAmount() {
+    @Override
+    public BigDecimal getAmount(){
         return amount;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public Type getType() {
-        return type;
+    public static List<Movement> getAll() {
+        return Collections.unmodifiableList(MOVEMENTS);
     }
 
     @Override
@@ -73,8 +59,8 @@ public class Movement {
                 '}';
     }
 
-    // Gestione date
-    private void checkDate(LocalDate date) {
+    @Override
+    public void checkDate() {
         if (date.isAfter(LocalDate.now())) {
             System.out.println("Date is after today");
         } else if (date.isBefore(LocalDate.now())) {
@@ -83,4 +69,6 @@ public class Movement {
             System.out.println("Date is today");
         }
     }
+
+
 }

@@ -28,10 +28,66 @@ public class App {
                 Category.SVAGO,
                 Type.OUT);
 
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(1500),
+                "Vendita vecchio computer",
+                LocalDate.now().minusDays(10),
+                Category.LAVORO,
+                Type.IN);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(80),
+                "Cena con amici",
+                LocalDate.now().minusDays(5),
+                Category.SVAGO,
+                Type.OUT);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(300),
+                "Riparazione auto",
+                LocalDate.now().minusDays(3),
+                Category.SVAGO,
+                Type.OUT);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(2000),
+                "Bonus annuale",
+                LocalDate.now().minusDays(15),
+                Category.LAVORO,
+                Type.IN);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(50),
+                "Abbonamento palestra",
+                LocalDate.now().minusDays(20),
+                Category.SVAGO,
+                Type.OUT);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(1200),
+                "Affitto ricevuto",
+                LocalDate.now().minusDays(7),
+                Category.LAVORO,
+                Type.IN);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(60),
+                "Acquisto libri",
+                LocalDate.now().minusDays(1),
+                Category.SVAGO,
+                Type.OUT);
+
+        new Movement(UUID.randomUUID(),
+                BigDecimal.valueOf(500),
+                "Regalo famiglia",
+                LocalDate.now().minusDays(12),
+                Category.SVAGO,
+                Type.OUT);
+
 
         Balance balance = new Balance();
+        BigDecimal nuovoSaldo = balance.updateBalance(budget, Movement.getAll());
 
-        balance.updateBalance(budget, Movement.getAll());
         System.out.println("Balance: " + budget.getAmount());
     }
 

@@ -1,0 +1,9 @@
+package it.unicam.cs.mpgc.jbudget119163.Abstract;
+
+import java.util.UUID;
+
+public interface BalanceInterface {
+    public void addMovement(UUID id);
+    public void removeMovement(UUID id);
+    public void removeAllMovements();
+}
